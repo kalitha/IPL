@@ -2,7 +2,7 @@
 //  TeamsViewModel.swift
 //  IPLInformation
 //
-//  Created by BridgeLabz Solutions LLP on 16/11/16.
+//  Created by Kalitha H N on 16/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class TeamsViewModel: NSObject {
     var teamsDataControllerObj :TeamsDataController?
     var arrayOfTeams = [Teams]()
     var count = 0
-    var image = #imageLiteral(resourceName: "cherry")
+    var image = #imageLiteral(resourceName: "dummyImage")
     var arrayOfImages = [UIImage]()
     
     init(obj: TeamInformation) {
@@ -39,10 +39,10 @@ class TeamsViewModel: NSObject {
 
     func fetchReloadFromView(data : [Teams]){
         arrayOfTeams = data// here the data is taken from the i/p arg and stors in arrayOfTeams
+        
         for i in 0..<self.arrayOfTeams.count{
             arrayOfImages.append(self.image)
-            
-        }
+            }
         fetchImage()
         teamInformationObj?.reload()
             }

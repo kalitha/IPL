@@ -2,7 +2,7 @@
 //  DataFromFirebase.swift
 //  IPLInformation
 //
-//  Created by BridgeLabz Solutions LLP on 16/11/16.
+//  Created by Kalitha H N on 16/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ class TeamsDataController: NSObject {
     }
     
     func fetchNumOfRows(){
-               teamsServiceObj?.fetchData()
+        teamsServiceObj?.fetchData()
     }
     
     func fetchDataFromService(data:[Teams]){

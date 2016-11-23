@@ -2,7 +2,7 @@
 //  TeamInformation.swift
 //  IPLInformation
 //
-//  Created by BridgeLabz Solutions LLP on 16/11/16.
+//  Created by Kalitha H N on 16/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 
@@ -11,9 +11,12 @@ import UIKit
 class TeamInformation: UITableViewController {
 
     var teamsViewModelObj : TeamsViewModel?//creating the object of TeamsViewModel
-    
+    var playersListViewModelObj : PlayersListViewModel?
+    var teamName: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
+        //self.tableView.backgroundColor = UIColor.clear
         
         teamsViewModelObj = TeamsViewModel(obj:self)//assigning the contents of TeamsViewModel
     }
@@ -47,8 +50,38 @@ class TeamInformation: UITableViewController {
         let teamImage = teamsViewModelObj?.fetchEachImage(i: indexPath.row)
         
         cell.imageView?.image = teamImage
+       
         
-      return cell
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        cell.textLabel?.textColor = UIColor.black
+        
+        cell.backgroundColor = UIColor.clear
+        cell.imageView?.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.imageView?.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
+        },completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                cell.imageView?.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+        })
+        
+        return cell
+    }
+    //navigating from 1 tabelviewcontroller to other
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    
+  self.teamName = (teamsViewModelObj?.contentAtEachRow(i: indexPath.row))!
+       //print(teamName)
+    
+    performSegue(withIdentifier: "segueToPlayersList", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // retrieve selected cell & fruit
+           let playerListView = segue.destination as! PlayersListView
+            playerListView.teamName = self.teamName
+        
     }
     
 
