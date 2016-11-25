@@ -56,7 +56,9 @@ class PlayersListService: NSObject {
     func fetchImage(imageUrl:String) {
         let storage = FIRStorage.storage()
         let storageRef = storage.reference(forURL: "gs://iplinformation-3f8f2.appspot.com")
+        let fetchedImage = IPLDatabase.getTeamImage(teamImageUrl: imageUrl)
         
+        if(fetchedImage.count == 0){
         let path = storageRef.child(imageUrl)
         
         path.data(withMaxSize: 1*1024*1024) {(data,error) -> Void in//we r making rest call here
@@ -64,10 +66,17 @@ class PlayersListService: NSObject {
                 print("error occured")
             }else{
                 let image = UIImage(data: data!)
+                IPLDatabase.storeTeamImages(teamImageUrl: imageUrl, teamImage: image!)
                 self.playersListControllerObj?.fetchImagesFromService(image: image!)
-                
+            }
             }
             
+        }else{
+            let imageArray = fetchedImage[0]
+            
+            let decodedImage = IPLDatabase.decodeImagefromBase64(strBase64: imageArray.image!)
+            self.playersListControllerObj?.fetchImagesFromService(image: decodedImage)
+
         }
     }
     

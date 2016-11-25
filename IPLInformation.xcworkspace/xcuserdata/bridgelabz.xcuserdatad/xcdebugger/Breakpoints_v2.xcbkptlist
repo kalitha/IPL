@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IPLInformation/TeamsService.swift"
-            timestampString = "501771151.488024"
+            timestampString = "501773221.334125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "fetchImages(arrayOfTeams:)"
             landmarkType = "7">
          </BreakpointContent>
