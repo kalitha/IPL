@@ -13,15 +13,27 @@ class TeamInformation: UITableViewController {
     var teamsViewModelObj : TeamsViewModel?//creating the object of TeamsViewModel
     var playersListViewModelObj : PlayersListViewModel?
     var teamName: String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
         //self.tableView.backgroundColor = UIColor.clear
         
         teamsViewModelObj = TeamsViewModel(obj:self)//assigning the contents of TeamsViewModel
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg4.jpg")?.draw(in: self.view.bounds)
+        
+        let backgroundImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
     }
     
     func reload(){
+       // (UIApplication.shared.delegate as! AppDelegate).saveContext()
         self.tableView.reloadData()//it reloads the tablview so that numberOfRowsInSection and cellForRowAt methods will be called
     }
     
@@ -52,18 +64,39 @@ class TeamInformation: UITableViewController {
         cell.imageView?.image = teamImage
        
         
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         cell.textLabel?.textColor = UIColor.black
-        
         cell.backgroundColor = UIColor.clear
-        cell.imageView?.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
-        UIView.animate(withDuration: 0.3, animations: {
-            cell.imageView?.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
-        },completion: { finished in
-            UIView.animate(withDuration: 0.1, animations: {
-                cell.imageView?.layer.transform = CATransform3DMakeScale(1,1,1)
-            })
-        })
+
+        
+        //animation
+        
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            
+            let cell: UITableViewCell = a as UITableViewCell
+            
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+                 cell.backgroundColor = UIColor.clear
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+                
+            }, completion: nil)
+            
+            index += 1
+        }
+
+        
+        
         
         return cell
     }

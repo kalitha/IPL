@@ -18,18 +18,38 @@ class TeamsDataController: NSObject {
         teamsServiceObj = TeamsService(obj: self)
     }
     
+    //makes a rest call when data is absent in local database else fetches data from local database
     func fetchNumOfRows(){
-        teamsServiceObj?.fetchData()
+        let  arrayOfTeams = IPLDatabase.getData()
+        var teams = [Teams]()
+        
+        
+        if(arrayOfTeams.count == 0){
+            teamsServiceObj?.fetchData()
+        }
+        else{
+            for i in 0..<arrayOfTeams.count{
+               let teamsObj = Teams(teamImage: arrayOfTeams[i].teamImage!, teamName: arrayOfTeams[i].teamName!)
+                teams.append(teamsObj)
+            }
+            fetchDataFromService(data: teams)
+            
+        }
     }
     
+    
+    
+    //calling fetchImage() of service class
+    func fetchImage(image: [Teams]){
+       
+        teamsServiceObj?.fetchImages(arrayOfTeams: image)
+    }
+
     func fetchDataFromService(data:[Teams]){
+        
         teamsViewModelObj?.fetchReloadFromView(data: data)
     }
     
-    //calling fetchImage() of service class
-    func fetchImage(){
-        teamsServiceObj?.fetchImages()
-    }
     
     func fetchImageFromService(image: UIImage, index: Int){
         teamsViewModelObj?.fetchImageFromController(image: image, index: index)

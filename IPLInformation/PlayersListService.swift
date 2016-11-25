@@ -38,11 +38,14 @@ class PlayersListService: NSObject {
     let playerRoleValue  = valueAtEachIndex["player_role"] as! String
     let playerNationalityValue  = valueAtEachIndex["player_nationality"] as! String
 
-    
+        
+        //storing into database
+    IPLDatabase.storePlayersData(playerBattingStyle: playerBattingstyleValue, playerBowlingStyle: playerBowlingStyleValue, playerDOB: playerDOBValue, playerImageUrl: playerImageUrlValue, playerName: playerNameValue, playerNationality: playerNationalityValue, playerRole: playerRoleValue, teamName: teamName)
+        
     let playersObj = Players(playerBattingStyle: playerBattingstyleValue, playerBowlingStyle: playerBowlingStyleValue, playerDOB: playerDOBValue, playerImageUrl: playerImageUrlValue, playerName: playerNameValue, playerNationality: playerNationalityValue, playerRole: playerRoleValue)
     self.arrayOfPlayersInfo.append(playersObj)
     }
-        self.playersListControllerObj?.fetchDataFromService(data: self.arrayOfPlayersInfo)
+        self.playersListControllerObj?.fetchDataFromService(data: self.arrayOfPlayersInfo as [Players])
     
     }) { (error) in
     print(error.localizedDescription)
@@ -53,21 +56,19 @@ class PlayersListService: NSObject {
     func fetchImage(imageUrl:String) {
         let storage = FIRStorage.storage()
         let storageRef = storage.reference(forURL: "gs://iplinformation-3f8f2.appspot.com")
-     
         
-            
-            let path = storageRef.child(imageUrl)
-            
-            path.data(withMaxSize: 1*1024*1024) {(data,error) -> Void in//we r making rest call here
-                if(error != nil){
-                    print("error occured")
-                }else{
-                    let image = UIImage(data: data!)
+        let path = storageRef.child(imageUrl)
+        
+        path.data(withMaxSize: 1*1024*1024) {(data,error) -> Void in//we r making rest call here
+            if(error != nil){
+                print("error occured")
+            }else{
+                let image = UIImage(data: data!)
                 self.playersListControllerObj?.fetchImagesFromService(image: image!)
-                   
-                }
+                
+            }
             
         }
     }
-   
+    
 }

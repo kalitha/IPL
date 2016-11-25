@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PlayersInformationDB" representedClassName="PlayersInformationDB" syncable="YES" codeGenerationType="class">
+        <attribute name="playerBattingStyle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerBowlingStyle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerDOB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerNationality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerRole" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TeamImge" representedClassName="TeamImge" syncable="YES" codeGenerationType="class">
+        <attribute name="image" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TeamsInformation" representedClassName="TeamsInformation" syncable="YES" codeGenerationType="class">
+        <attribute name="teamImage" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TeamsInformation" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PlayersInformationDB" positionX="-63" positionY="0" width="128" height="165"/>
+        <element name="TeamImge" positionX="-54" positionY="63" width="128" height="75"/>
+    </elements>
+</model>

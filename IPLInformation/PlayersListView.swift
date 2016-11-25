@@ -20,11 +20,32 @@ class PlayersListView: UITableViewController {
         playersListViewModelObj = PlayersListViewModel(obj: self)
         playersListViewModelObj?.callingControllerfetchData(teamName: teamName!)
         
+        //single image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg4.jpg")?.draw(in: self.view.bounds)
+        
+        let backgroundImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        
     }
 
-    
+
     func reload(){
         self.tableView.reloadData()//it reloads the tablview so that numberOfRowsInSection and cellForRowAt methods will be called
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for (index, cell) in cells.enumerated() {
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+            UIView.animate(withDuration: 1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+        }
+
     }
     
     
@@ -55,8 +76,13 @@ class PlayersListView: UITableViewController {
         //cell.backgroundColor = UIColor.purple
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         cell.textLabel?.textColor = UIColor.black
-        cell.backgroundColor = UIColor.clear
-        return cell
+        
+         cell.backgroundColor = UIColor.clear
+        
+        //animations
+       
+                return cell
+        
     }
     //delegate method for printing the selected row
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){

@@ -15,7 +15,7 @@ class TeamsViewModel: NSObject {
     var count = 0
     var image = #imageLiteral(resourceName: "dummyImage")
     var arrayOfImages = [UIImage]()
-    
+    var countOfFetchedImages = 0
     init(obj: TeamInformation) {
        super.init()
         teamInformationObj=obj
@@ -43,8 +43,8 @@ class TeamsViewModel: NSObject {
         for i in 0..<self.arrayOfTeams.count{
             arrayOfImages.append(self.image)
             }
-        fetchImage()
-        teamInformationObj?.reload()
+        fetchImage(image: arrayOfTeams)
+        //teamInformationObj?.reload()
             }
     
     func contentAtEachRow(i:Int)->String{
@@ -59,19 +59,20 @@ class TeamsViewModel: NSObject {
     }
     
     //calling fetchImages() of service class
-    func fetchImage(){
-        teamsDataControllerObj?.fetchImage()
+    func fetchImage(image: [Teams]){
+        teamsDataControllerObj?.fetchImage(image: image)
         
       
     }
 
     //getting images from service class
     func fetchImageFromController(image: UIImage, index: Int){
-     //self.image = image
+        countOfFetchedImages+=1
         arrayOfImages[index] = image
-//        arrayOfImages.insert(image, at: index)
+        if(countOfFetchedImages == arrayOfImages.count){
         teamInformationObj?.reload()
             }
+    }
 
     func fetchEachImage(i:Int)->UIImage{
         //var imageInIndex : UIImage

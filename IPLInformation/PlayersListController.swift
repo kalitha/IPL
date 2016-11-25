@@ -15,7 +15,7 @@ class PlayersListController: NSObject {
     var playerImageViewModelObj: PlayerImageViewModel?
     init(obj: PlayersListViewModel) {
         super.init()
-    playersListViewModelObj = obj
+        playersListViewModelObj = obj
         playersListServiceObj = PlayersListService(obj: self)
     }
     init(object: PlayerImageViewModel) {
@@ -23,17 +23,26 @@ class PlayersListController: NSObject {
         playerImageViewModelObj = object
         playersListServiceObj = PlayersListService(obj: self)
     }
-//    func fetchNumOfRows(){
-//        playersListServiceObj?.fetchData()
-//    }
+    
+    func callingServiceFetchData(teamName: String){
+        let  arrayOfPlayers = IPLDatabase.getPlayersData(teamName: teamName)
+        var players = [Players]()
+        if(arrayOfPlayers.count == 0){
+            playersListServiceObj?.fetchData(teamName:teamName)
+        }
+        else{
+            for i in 0..<arrayOfPlayers.count{
+                let playersObj = Players(playerBattingStyle: arrayOfPlayers[i].playerBattingStyle!, playerBowlingStyle: arrayOfPlayers[i].playerBowlingStyle!, playerDOB: arrayOfPlayers[i].playerDOB!, playerImageUrl: arrayOfPlayers[i].playerImageUrl!, playerName: arrayOfPlayers[i].playerName!, playerNationality: arrayOfPlayers[i].playerNationality!, playerRole: arrayOfPlayers[i].playerRole!)
+                players.append(playersObj)
+            }
+            fetchDataFromService(data: players)
+        }
+    }
     
     func fetchDataFromService(data:[Players]){
         playersListViewModelObj?.fetchDataFromContollerAndCallReloadFomView(data: data)
     }
     
-    func callingServiceFetchData(teamName: String){
-        playersListServiceObj?.fetchData(teamName:teamName)
-    }
     
     func fetchImage(imageUrl:String){
         playersListServiceObj?.fetchImage(imageUrl: imageUrl)

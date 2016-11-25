@@ -12,6 +12,7 @@
 		0A3B11391DE464CD00FFCA5C /* PlayerInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B11381DE464CD00FFCA5C /* PlayerInformationView.swift */; };
 		0A3C1ECE1DE556F70042DA65 /* PlayerImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C1ECD1DE556F70042DA65 /* PlayerImageViewModel.swift */; };
 		0A3C1ED21DE5AA370042DA65 /* bg4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A3C1ED11DE5AA370042DA65 /* bg4.jpg */; };
+		0A6A0F241DE863F700B511FD /* ipl.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A6A0F231DE863F700B511FD /* ipl.png */; };
 		0A7713591DDC70200031A14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7713581DDC70200031A14E /* AppDelegate.swift */; };
 		0A77135E1DDC70200031A14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A77135C1DDC70200031A14E /* Main.storyboard */; };
 		0A7713601DDC70210031A14E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A77135F1DDC70210031A14E /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 		0A87084D1DE31C340074687F /* PlayersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87084C1DE31C340074687F /* PlayersListViewModel.swift */; };
 		0A87084F1DE31C620074687F /* PlayersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87084E1DE31C620074687F /* PlayersListController.swift */; };
 		0A8708511DE31C8D0074687F /* PlayersListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8708501DE31C8D0074687F /* PlayersListService.swift */; };
+		0A97F84C1DE6F59F008C3841 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F84A1DE6F59F008C3841 /* CoreData.xcdatamodeld */; };
+		0A97F84F1DE6FE32008C3841 /* IPLDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A97F84E1DE6FE31008C3841 /* IPLDatabase.swift */; };
 		C85615BE58F4FCC3C9768CD1 /* Pods_IPLInformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8005D7D25273FCD4B90FAFD9 /* Pods_IPLInformation.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,7 @@
 		0A3B11381DE464CD00FFCA5C /* PlayerInformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerInformationView.swift; sourceTree = "<group>"; };
 		0A3C1ECD1DE556F70042DA65 /* PlayerImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerImageViewModel.swift; sourceTree = "<group>"; };
 		0A3C1ED11DE5AA370042DA65 /* bg4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg4.jpg; sourceTree = "<group>"; };
+		0A6A0F231DE863F700B511FD /* ipl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipl.png; sourceTree = "<group>"; };
 		0A7713551DDC70200031A14E /* IPLInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPLInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A7713581DDC70200031A14E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A77135D1DDC70200031A14E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		0A87084C1DE31C340074687F /* PlayersListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersListViewModel.swift; sourceTree = "<group>"; };
 		0A87084E1DE31C620074687F /* PlayersListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersListController.swift; sourceTree = "<group>"; };
 		0A8708501DE31C8D0074687F /* PlayersListService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersListService.swift; sourceTree = "<group>"; };
+		0A97F84B1DE6F59F008C3841 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		0A97F84E1DE6FE31008C3841 /* IPLDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPLDatabase.swift; sourceTree = "<group>"; };
 		6FC631CE2BB381D7442CCE61 /* Pods-IPLInformation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPLInformation.release.xcconfig"; path = "Pods/Target Support Files/Pods-IPLInformation/Pods-IPLInformation.release.xcconfig"; sourceTree = "<group>"; };
 		8005D7D25273FCD4B90FAFD9 /* Pods_IPLInformation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPLInformation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A04923A1A2F31BC6C632F1 /* Pods-IPLInformation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPLInformation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IPLInformation/Pods-IPLInformation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		0A7713571DDC70200031A14E /* IPLInformation */ = {
 			isa = PBXGroup;
 			children = (
+				0A97F84D1DE6FDC9008C3841 /* Database */,
 				0A77136D1DDC734B0031A14E /* View */,
 				0A77136C1DDC73390031A14E /* ViewModel */,
 				0A77136B1DDC73040031A14E /* Controller */,
@@ -147,12 +154,14 @@
 		0A77136F1DDC736A0031A14E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0A6A0F231DE863F700B511FD /* ipl.png */,
 				0A3C1ED11DE5AA370042DA65 /* bg4.jpg */,
 				0A77135C1DDC70200031A14E /* Main.storyboard */,
 				0A77135F1DDC70210031A14E /* Assets.xcassets */,
 				0A7713611DDC70210031A14E /* LaunchScreen.storyboard */,
 				0A7713641DDC70210031A14E /* Info.plist */,
 				0A7713721DDC7AA90031A14E /* GoogleService-Info.plist */,
+				0A97F84A1DE6F59F008C3841 /* CoreData.xcdatamodeld */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -164,6 +173,14 @@
 				0A8708501DE31C8D0074687F /* PlayersListService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		0A97F84D1DE6FDC9008C3841 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				0A97F84E1DE6FE31008C3841 /* IPLDatabase.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		D06DC630673AF4065D7A0FEC /* Pods */ = {
@@ -250,6 +267,7 @@
 				0A7713631DDC70210031A14E /* LaunchScreen.storyboard in Resources */,
 				0A7713601DDC70210031A14E /* Assets.xcassets in Resources */,
 				0A77135E1DDC70200031A14E /* Main.storyboard in Resources */,
+				0A6A0F241DE863F700B511FD /* ipl.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,7 +331,9 @@
 				0A8708511DE31C8D0074687F /* PlayersListService.swift in Sources */,
 				0A7713591DDC70200031A14E /* AppDelegate.swift in Sources */,
 				0A7713771DDC97F00031A14E /* TeamsViewModel.swift in Sources */,
+				0A97F84F1DE6FE32008C3841 /* IPLDatabase.swift in Sources */,
 				0A7713711DDC75BC0031A14E /* TeamInformation.swift in Sources */,
+				0A97F84C1DE6F59F008C3841 /* CoreData.xcdatamodeld in Sources */,
 				0A3B11391DE464CD00FFCA5C /* PlayerInformationView.swift in Sources */,
 				0A87084D1DE31C340074687F /* PlayersListViewModel.swift in Sources */,
 				0A7713751DDC961E0031A14E /* TeamsDataController.swift in Sources */,
@@ -487,6 +507,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0A97F84A1DE6F59F008C3841 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A97F84B1DE6F59F008C3841 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 0A97F84B1DE6F59F008C3841 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0A77134D1DDC70200031A14E /* Project object */;
 }

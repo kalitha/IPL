@@ -35,6 +35,16 @@ class PlayerInformationView: UIViewController {
         
         playerImageViewModelObj?.fetchPlayerImage(imageUrl:k!)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
+        
+        //single background image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg4.jpg")?.draw(in: self.view.bounds)
+        
+        let backgroundImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
     }
      override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(true)
@@ -44,10 +54,7 @@ class PlayerInformationView: UIViewController {
         role.text = playersInfo?.playerRole
         battingStyle.text = playersInfo?.playerBattingStyle
         BowlingStyle.text = playersInfo?.playerBowlingStyle
-        
-        
-        
-        
+        nationality.text = playersInfo?.playerNationality
         }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +64,7 @@ class PlayerInformationView: UIViewController {
     
     func fetchParticularImage(image: UIImage){
         imageView.image = image
+        
         
     }
 
