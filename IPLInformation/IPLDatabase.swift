@@ -2,7 +2,7 @@
 //  TeamDatabase.swift
 //  IPLInformation
 //
-//  Created by BridgeLabz Solutions LLP on 24/11/16.
+//  Created by Kalitha H N on 24/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 

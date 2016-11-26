@@ -95,9 +95,6 @@ class TeamInformation: UITableViewController {
             index += 1
         }
 
-        
-        
-        
         return cell
     }
     //navigating from 1 tabelviewcontroller to other
@@ -117,5 +114,4 @@ class TeamInformation: UITableViewController {
         
     }
     
-
 }

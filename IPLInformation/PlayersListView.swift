@@ -20,6 +20,9 @@ class PlayersListView: UITableViewController {
         playersListViewModelObj = PlayersListViewModel(obj: self)
         playersListViewModelObj?.callingControllerfetchData(teamName: teamName!)
         
+        
+        self.navigationItem.title = teamName
+        
         //single image
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "bg4.jpg")?.draw(in: self.view.bounds)

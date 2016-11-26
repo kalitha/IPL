@@ -10,4 +10,5 @@ target 'IPLInformation' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'AlamofireImage'
+  pod 'Firebase/Auth'
 end

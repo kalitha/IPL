@@ -19,6 +19,7 @@ class PlayerInformationView: UIViewController {
     @IBOutlet weak var BowlingStyle: UILabel!
     @IBOutlet weak var battingStyle: UILabel!
     
+    @IBOutlet weak var backgroundView: UIView!
     var playersInfo: Players?//storing single model
     //var playerInformationViewObj : PlayerInformationView?
     var playerImageViewModelObj: PlayerImageViewModel?
@@ -45,6 +46,7 @@ class PlayerInformationView: UIViewController {
         UIGraphicsEndImageContext()
         
         self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        self.backgroundView.backgroundColor = UIColor(patternImage: backgroundImage)
     }
      override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(true)
