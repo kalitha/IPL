@@ -19,8 +19,8 @@
         <attribute name="teamName" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TeamsInformation" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="PlayersInformationDB" positionX="-63" positionY="0" width="128" height="165"/>
         <element name="TeamImge" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="TeamsInformation" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

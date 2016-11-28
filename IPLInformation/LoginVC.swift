@@ -28,11 +28,34 @@ class LoginVC: UIViewController {
     
     
     @IBAction func login(_ sender: UIButton) {
+        FIRAuth.auth()?.signIn(withEmail: emailId.text!, password: password.text!) { (user, error) in
+            if((error) != nil){
+                let alert = UIAlertController(title: "Alert", message: "user doesn't exit", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "navigatingToTeams", sender: nil)
+                
+            }
+        }
+
+        
     }
     
     @IBAction func signUp(_ sender: Any) {
         FIRAuth.auth()?.createUser(withEmail: emailId.text!, password: password.text!) { (user, error) in
-            
+            if((error) != nil){
+                let alert = UIAlertController(title: "Alert", message: "please provide valid details", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            else{
+                self.performSegue(withIdentifier: "navigatingToTeams", sender: nil)
+
+            }
         }
     }
     /*

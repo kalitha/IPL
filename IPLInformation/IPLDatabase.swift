@@ -11,7 +11,7 @@ import  CoreData
 class IPLDatabase: NSObject {
     
   class func getData()->[TeamsInformation]{
-        var teams = [TeamsInformation]()
+        var teams = [TeamsInformation]()//since it is a model array we r using ()
          let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         do{
