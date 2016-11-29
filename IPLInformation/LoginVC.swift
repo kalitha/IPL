@@ -16,9 +16,19 @@ class LoginVC: UIViewController {
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
-
-        // Do any additional setup after loading the view.
+        
+       //code for single background image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "violet.jpg")?.draw(in: self.view.bounds)
+        
+        
+        let backgroundImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        self.emailId.font = UIFont.boldSystemFont(ofSize: 16)
+                // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

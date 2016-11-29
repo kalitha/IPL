@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  IPLInformation
 //
-//  Created by BridgeLabz Solutions LLP on 16/11/16.
+//  Created by Kalitha H N on 16/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 import CoreData
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
-        let storage = FIRStorage.storage()
+        
 
         return true
     }
@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
         self.saveContext()
     }
     // MARK: - Core Data stack

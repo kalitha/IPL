@@ -10,6 +10,19 @@ import UIKit
 import  CoreData
 class IPLDatabase: NSObject {
     
+    class func storeData(teamName: String, teamImageUrl: String){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let teamsInformation = TeamsInformation(context: context)
+        
+        teamsInformation.teamName = teamName
+        teamsInformation.teamImage = teamImageUrl
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+    }
+
+    
   class func getData()->[TeamsInformation]{
         var teams = [TeamsInformation]()//since it is a model array we r using ()
          let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,17 +35,6 @@ class IPLDatabase: NSObject {
         return teams
     }
     
-  class func storeData(teamName: String, teamImageUrl: String){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let teamsInformation = TeamsInformation(context: context)
-
-      teamsInformation.teamName = teamName
-        teamsInformation.teamImage = teamImageUrl
-        
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-
-    }
     
     class func getPlayersData(teamName: String)->[PlayersInformationDB]{
         var players = [PlayersInformationDB]()
@@ -66,6 +68,7 @@ class IPLDatabase: NSObject {
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
 
     }
+    
     
     class func encodeImageBase64(image : UIImage) -> String
     {

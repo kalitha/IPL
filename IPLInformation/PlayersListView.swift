@@ -41,14 +41,13 @@ class PlayersListView: UITableViewController {
         
         let cells = tableView.visibleCells
         let tableHeight: CGFloat = tableView.bounds.size.height
-        
         for (index, cell) in cells.enumerated() {
             cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
             UIView.animate(withDuration: 1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
                 cell.transform = CGAffineTransform(translationX: 0, y: 0);
             }, completion: nil)
         }
-
+        
     }
     
     
@@ -82,7 +81,6 @@ class PlayersListView: UITableViewController {
         
          cell.backgroundColor = UIColor.clear
         
-        //animations
        
                 return cell
         

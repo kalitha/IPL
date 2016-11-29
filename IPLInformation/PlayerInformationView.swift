@@ -18,10 +18,11 @@ class PlayerInformationView: UIViewController {
     @IBOutlet weak var nationality: UILabel!
     @IBOutlet weak var BowlingStyle: UILabel!
     @IBOutlet weak var battingStyle: UILabel!
-    
+        
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var backgroundView: UIView!
     var playersInfo: Players?//storing single model
-    //var playerInformationViewObj : PlayerInformationView?
+  
     var playerImageViewModelObj: PlayerImageViewModel?
     
     
@@ -47,9 +48,12 @@ class PlayerInformationView: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: backgroundImage)
         self.backgroundView.backgroundColor = UIColor(patternImage: backgroundImage)
-    }
+        
+        }
+    
      override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(true)
+        
         
         name.text = playersInfo?.playerName
         DOB.text = playersInfo?.playerDOB
@@ -66,7 +70,21 @@ class PlayerInformationView: UIViewController {
     
     func fetchParticularImage(image: UIImage){
         imageView.image = image
+        activityIndicator.stopAnimating()
+        imageView.alpha = 0
         
+        //animation
+        imageView.transform = CGAffineTransform(translationX: -50, y: -50)
+        UIView.animate(withDuration: 1, animations: {
+            self.imageView.transform = CGAffineTransform(translationX: 100, y: 100)
+            self.imageView.alpha = 1
+        }, completion: {finished in
+            UIView.animate(withDuration: 1, animations: {
+                self.imageView.transform = CGAffineTransform(translationX: 0, y: 0)
+            }, completion: nil)
+            
+        })
+
         
     }
 

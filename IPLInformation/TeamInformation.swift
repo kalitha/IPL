@@ -10,18 +10,17 @@ import UIKit
 
 class TeamInformation: UITableViewController {
 
-    var teamsViewModelObj : TeamsViewModel?//creating the object of TeamsViewModel
+    var teamsViewModelObj : TeamsViewModel?//declaring a variable to hold TeamsViewModel properties
     var playersListViewModelObj : PlayersListViewModel?
     var teamName: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg4.jpg")!)
-        //self.tableView.backgroundColor = UIColor.clear
+            
+        teamsViewModelObj = TeamsViewModel(obj:self)//assigning the contents of TeamsViewModel(i.e creating objeect of TeamsViewModel
         
-        teamsViewModelObj = TeamsViewModel(obj:self)//assigning the contents of TeamsViewModel
-        
+        //single background image
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "bg4.jpg")?.draw(in: self.view.bounds)
         
@@ -33,7 +32,7 @@ class TeamInformation: UITableViewController {
     }
     
     func reload(){
-       // (UIApplication.shared.delegate as! AppDelegate).saveContext()
+       
         self.tableView.reloadData()//it reloads the tablview so that numberOfRowsInSection and cellForRowAt methods will be called
     }
     
