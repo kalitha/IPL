@@ -26,9 +26,19 @@ class LoginVC: UIViewController {
         
         UIGraphicsEndImageContext()
         
+        self.emailId.transform = CGAffineTransform(translationX:300, y: 0)
+        self.password.transform = CGAffineTransform(translationX:300, y: 0)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.emailId.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.password.transform = CGAffineTransform(translationX:0, y:0)
+        }, completion: nil)
+
+        
         self.view.backgroundColor = UIColor(patternImage: backgroundImage)
         self.emailId.font = UIFont.boldSystemFont(ofSize: 16)
-                // Do any additional setup after loading the view.
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
